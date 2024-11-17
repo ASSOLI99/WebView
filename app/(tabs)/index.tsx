@@ -11,20 +11,17 @@ import {
 import { WebView } from "react-native-webview";
 
 const FullScreenWebView = () => {
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [canGoBack, setCanGoBack] = useState(false); // Track if there's a back history
+  const [canGoBack, setCanGoBack] = useState(false);
   const webViewRef = useRef<WebView>(null);
 
   const onLoadStart = () => {
-    setLoading(true);
     setError(false);
   };
 
-  const onLoadEnd = () => setLoading(false);
+  const onLoadEnd = () => {};
 
   const onError = () => {
-    setLoading(false);
     setError(true);
   };
 
@@ -59,13 +56,6 @@ const FullScreenWebView = () => {
         />
       </View>
 
-      {/* Loading Spinner */}
-      {loading && (
-        <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#0000ff" />
-        </View>
-      )}
-
       {/* Error Message */}
       {error && (
         <View style={styles.errorContainer}>
@@ -82,11 +72,11 @@ const FullScreenWebView = () => {
       {/* WebView */}
       <WebView
         ref={webViewRef}
-        source={{ uri: "https://entaj.tech" }}
+        source={{ uri: "https://agriculture-sooq.vercel.app" }}
         onLoadStart={onLoadStart}
         onLoadEnd={onLoadEnd}
         onError={onError}
-        onNavigationStateChange={onNavigationStateChange} // Track navigation state
+        onNavigationStateChange={onNavigationStateChange}
         style={styles.webView}
       />
     </View>
@@ -102,13 +92,6 @@ const styles = StyleSheet.create({
     height: StatusBar.currentHeight || 44,
     backgroundColor: "#fff",
     zIndex: 1,
-  },
-  loadingContainer: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: [{ translateX: -25 }, { translateY: -25 }],
-    zIndex: 2,
   },
   errorContainer: {
     position: "absolute",

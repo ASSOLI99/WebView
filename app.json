@@ -1,18 +1,18 @@
 {
   "expo": {
-    "name": "entaj",
-    "slug": "entaj",
+    "name": "sooq",
+    "slug": "sooq",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "entaj",
+    "scheme": "sooq",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
     },
     "android": {
-      "package": "com.entaj.app",
+      "package": "com.sooq.app",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
